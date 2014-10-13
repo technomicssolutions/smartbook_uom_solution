@@ -1,0 +1,25 @@
+
+from django.conf.urls import patterns, include, url
+from django.contrib.auth.decorators import login_required
+
+from accounting.views import Ledgers, AddLedger, DeleteLedger, SubledgerDetails, \
+	LedgerSubledgerList, DeleteSubLedger, SearchLedger, LedgerTreeView,  \
+	CreatePayment, CreateReceipt, OtherTransaction, OpeningBalance, DayBook
+
+urlpatterns = patterns('',
+	url(r'^ledgers/$', login_required(Ledgers.as_view()),name='ledgers'),
+	url(r'^add_ledger/$', login_required(AddLedger.as_view()),name='add_ledger'),
+	url(r'^delete_ledger/$', login_required(DeleteLedger.as_view()),name='delete_ledger'),
+	url(r'^subledger_details/(?P<ledger_id>\d+)/$', login_required(SubledgerDetails.as_view()), name='subledger_details'),
+	url(r'^subledger_list/(?P<ledger_id>\d+)/$', login_required(LedgerSubledgerList.as_view()), name='subledger_list'),
+	url(r'^delete_subledger/$', login_required(DeleteSubLedger.as_view()),name='delete_subledger'),
+	url(r'^search_ledger/$', login_required(SearchLedger.as_view()), name='search_ledger'),
+	url(r'^ledgers_tree_view/$', login_required(LedgerTreeView.as_view()),name='ledgers_tree_view'),
+
+	url(r'^create_payment/$', login_required(CreatePayment.as_view()),name='create_payment'),
+	url(r'^create_receipt/$', login_required(CreateReceipt.as_view()),name='create_receipt'),
+	url(r'^other_transaction/$', login_required(OtherTransaction.as_view()),name='other_transaction'),
+
+	url(r'^opening_balance/$', login_required(OpeningBalance.as_view()),name='opening_balance'),
+	url(r'^day_book/$', login_required(DayBook.as_view()),name='day_book'),
+) 

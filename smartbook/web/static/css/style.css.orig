@@ -1,0 +1,324 @@
+/********** common styles *************/
+
+html, body {
+	margin: 0;
+	padding: 0;
+	height: 100%;
+	width: 100%
+}
+
+#dialogue_popup_container {
+	display: none;
+	/*z-index: 2;*/
+	position: absolute;
+	width: 100%;
+}
+#dialogue_popup {
+	height: auto;
+	border-radius: 15px 15px 15px 15px;
+	border: 2px solid #707070;
+	/*margin: 138px auto auto!important;*/
+	margin: 40px auto auto!important;
+	z-index: 2;
+	position: relative;
+	background-color: #FFFFFF;
+	display: none;
+	overflow: hidden;
+	padding-bottom: 20px;
+	width: 384px;
+	padding: 1%;
+}
+#dialogue_popup form {
+	width: 100%;
+}
+#overlay {
+	display: none;
+	z-index: 3;
+	position: fixed;
+	width: 100%;
+	height: 100%;
+	background-color: #FFFFFF;
+	opacity: 0.5;
+}
+#popup_overlay {
+	display: none;
+	z-index: 1;
+	position: fixed;
+	width: 100%;
+	height: 100%;
+	background-color: #FFFFFF;
+	opacity: 0.5;	
+}
+.spinner {
+	background: url('../images/ajax-loader.gif') no-repeat;
+	width: 16px;
+	height: 16px;
+	z-index: 3;
+	margin: auto;
+	position: fixed;
+	left: 50%;
+	top: 50%;
+	display: none;
+}
+.container {
+	width: 100%;
+	padding: 0px !important;
+	height: 100%;
+}
+.clear {
+	clear: both;
+}
+footer p{
+	text-align: center;
+}
+footer {
+	bottom: 0;
+    text-align: center;
+    width: 100%;
+}
+.content {
+	float: left;
+	width: 100%;
+	min-height: 400px;
+}
+.right_container {
+	float: left;
+	width: 20%;
+	height: 100%;
+	background-color: #333333;
+	opacity: 0.7;
+	position: fixed;
+	right: 0px;
+	color: #FFFFFF;
+}
+.error_msg {
+	color: #FF0000;
+	font-weight: bold;
+}
+
+h2 {
+	text-align: center;
+	color: #707070;
+	width: 80%;
+}
+.create_new {
+	display: block;
+	padding: 10px;
+	color: #FFFFFF;
+	background-color: #707070;
+	font-weight: bold;
+	float: right;
+	margin-right: 25%;
+}
+.list_table{
+	width: 75%;
+	margin: 100px auto auto auto;
+}
+/************************** common styles end ***********/
+/************** Login page  and create user styles**************/
+.login, .create_user {
+	width: 20%;
+	float: right;
+	margin: 10% 10% 0 0;
+}
+.create_user {
+	float: left;
+    margin-left: 5%;
+    margin-top: 3%;
+    width: 35%;
+}
+
+.sub_heading {
+	color: #12569A;
+	padding: 0px 0px 10px 0px;
+	border-bottom: 1px solid #12569A;
+}
+
+.login form, .create_user .field_set {
+	display: block;
+	width: 95%;
+	float: right;
+}
+
+.login label, .create_user label {
+	width: 39%;
+	height: 30px;
+}
+.login input, .create_user input {
+	width: 58%;
+	height: 30px;
+}
+.login input[type="submit"], .create_user input[type="submit"] {
+	border: none;
+	background-color: #12569A;
+	width: 20%;
+	float: right;
+	padding: 2px;
+	border: 1px solid #D6D4D2;
+	color: #FFFFFF;
+}
+
+
+/************ Login page style send ***************/
+
+/******************* Menu Styles ***************/
+
+.menu {
+	width: 100%;
+}
+
+.menu ul {
+	display: block;
+	list-style: none;
+}
+
+.menu ul li {
+	min-height: 30px;
+	padding: 5px;
+}
+.menu ul li a{
+	color: #FFFFFF;
+	text-decoration: none;
+	font-size: 15px;
+}
+
+.menu ul li ul {
+	display: block;
+	height: 0px;
+	overflow: hidden;
+}
+.menu_toggler {
+	position: absolute;
+	width: 23px;
+	height: 18px;
+	color: #FFFFFF;
+	font-weight: bold;
+	cursor: pointer;
+	top: 50%;
+	z-index: 2;
+}
+.open {
+	background: url('../images/arrow4.png') no-repeat;	
+}
+.closed {
+	background: url('../images/arrow3.png') no-repeat;	
+}
+.logout_button {
+	background: url('../images/gnome_logout.png') no-repeat;
+	width: 22px;
+	height: 22px;
+	text-indent: -9999;
+	display: block;
+	float: right;
+}
+.user_details {
+	padding: 20px;
+}
+.menu span a {
+	padding-left: 15px;
+	outline: none;
+}
+.submenu_open {
+	background: url('../images/arrow.png') no-repeat;
+	background-position: 0px 7px;
+}
+.submenu_closed {
+	background: url('../images/arrow1.png') no-repeat;
+}
+
+.search_dropdown_list {
+    position: absolute;
+    width: 80%;
+    background-color: #FFFFFF;
+    border: 1px solid #ADD8E6;
+}
+.search_drop_down_item {
+	border-bottom: 1px solid #ADD8E6;
+    padding: 5px;
+}
+.error_message {
+	color: #FF0000;
+}
+.search_customer{
+	display: block;
+    float: left;
+    margin-left: 13%;
+    margin-top: 3%;
+    width: 30%;
+}
+.search_supplier{
+	display: block;
+    float: left;
+    margin-left: 13%;
+    margin-top: 3%;
+    width: 30%;
+}
+.search_ledger_list{
+  	background-color: #FFFFFF;
+    border: 1px solid #ADD8E6;
+    position: absolute;
+    width: 46%;
+    border-bottom: none;
+}
+.search_ledger_item {
+	border-bottom: 1px solid #ADD8E6;
+    padding: 5px;
+}
+/******************* End menu styles ************/
+/******************* Payment styles ************/
+.payment_container {
+	margin: auto;
+	width: 35%;
+	min-height: 100%
+}
+.payment_container .control {
+	width: 100%;
+	height: 30px;
+	float: left;
+	padding: 10px;
+}
+.payment_container label{
+	display: block !important;
+    float: left;
+    width: 45%;
+}
+.label_radio{
+	width: 13% !important;
+}
+.payment_container input[type="text"]{
+	float: left;
+	display: block;
+	width: 50%;
+}
+.payment_container input[type="button"]{
+	width: auto;
+}
+.payment_container input[type="radio"]{
+	float: left;
+	width: 5%;
+}
+.payment_container select{
+	float: left;
+	display: block;
+	width: 50%;
+}
+.save_payment {
+    background-color: #707070;
+    color: #FFFFFF;
+    display: block;
+    float: right;
+    font-weight: bold;
+    height: 30px;
+    margin-top: 6%;
+    width: 77px;
+    margin-left: 2%;
+}
+.btn_control{
+	margin-right: 21%;
+}
+/******************* End payment styles ************/
+
+/******************Popup searchdropdownlisting */
+#opening_stock .search_dropdown_list{
+	position: relative;
+}

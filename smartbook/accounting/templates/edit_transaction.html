@@ -1,0 +1,99 @@
+{% extends 'base.html' %}
+{% block title %} Edit Transaction {% endblock title%}
+{% block body_id %}edit_transaction{% endblock %}
+{% block controller %} ng-controller="EditTransactionController" ng-init="init('{{csrf_token}}')"{% endblock controller %}
+{% block dialogue_popup %}   
+	{% include 'show_transaction_details.html' %}   
+{% endblock %}
+{% block extrahead %}
+	 <script>
+		$(function() {
+			$( "#cheque_date" ).datepicker();
+		});
+	</script>
+{% endblock %}
+
+{% block content %}
+
+	<h2>Edit Transaction</h2>
+	<div class="form_container single_column_container">
+		<form name="edit_transaction">
+			<div class="control">
+				<label>Transaction No</label>
+				<input type="text" name="transaction_no" id="transaction_no" ng-model="transaction_no" ng-change="get_transaction_details()">
+			</div>
+			<div ng-show="is_transaction">
+				
+				<div class="control" ng-hide="is_receipt || is_other_transaction">
+					<label>Debit Ledger</label>
+					<label>[[transaction_details.debit_ledger_name]]</label>
+				</div>
+				<div class="control" ng-show="is_payment || is_other_transaction">
+					<label>Debit Ledger</label>
+					<input type="text" name="ledger_name" ng-model="debit_ledger_name" ng-change="get_ledger_list('debit_ledger','payment')" ng-disabled="ledger.id" autocomplete="off" />
+					<div ng-show="debit_ledgers.length > 0" class="search_list">
+						<div ng-repeat="ledger in debit_ledgers" class="search_list_item" ng-click="select_ledger_details(ledger, 'payment')">
+							<span>[[ledger.ledger_name]]</span>
+						</div>
+					</div>
+				</div>
+				<div class="control" ng-hide="is_payment || is_other_transaction">
+					<label>Credit Ledger</label>
+					<label>[[transaction_details.credit_ledger_name]]</label>
+				</div>
+				<div class="control" ng-show="is_receipt || is_other_transaction">
+					<label>Credit Ledger</label>
+					<input type="text" name="ledger_name" ng-model="credit_ledger_name" ng-change="get_ledger_list('credit_ledger','receipt')" ng-disabled="ledger.id" autocomplete="off" />
+					<div ng-show="credit_ledgers.length > 0" class="search_list">
+						<div ng-repeat="ledger in credit_ledgers" class="search_list_item" ng-click="select_ledger_details(ledger, 'receipt')">
+							<span>[[ledger.ledger_name]]</span>
+						</div>
+					</div>
+				</div>
+				<div class="control">
+					<label>Narration</label>
+					<label>[[transaction_details.narration]]</label>
+				</div>
+				<div class="control">
+					<label>Payment Mode</label>
+					<label>[[transaction_details.payment_mode]]</label>
+				</div>
+				<div class="control" ng-show="transaction_details.payment_mode == 'card' || transaction_details.payment_mode == 'cheque'">
+					<label>Bank Name</label>
+					<input type="text" ng-model="transaction_details.bank_name" />
+				</div>
+				<div class="control" ng-show="transaction_details.payment_mode == 'cheque'">
+					<label>Branch</label>
+					<input type="text" ng-model="transaction_details.branch" />
+				</div>
+				<div class="control" ng-show="transaction_details.payment_mode == 'cheque'">
+					<label>Cheque Date</label>
+					<!-- <label>[[transaction_details.cheque_date]]</label> -->
+					<input type="text" ng-model="transaction_details.cheque_date" id="cheque_date"/>
+				</div>
+				<div class="control" ng-show="transaction_details.payment_mode == 'cheque'">
+					<label>Cheque No</label>
+					<input type="text" ng-model="transaction_details.cheque_no" />
+				</div>
+				<div class="control" ng-show="transaction_details.payment_mode == 'card'">
+					<label>Card No</label>
+					<input type="text" ng-model="transaction_details.card_no" />
+				</div>
+				<div class="control" ng-show="transaction_details.payment_mode == 'card'">
+					<label>Card Holder Name</label>
+					<input type="text" ng-model="transaction_details.card_holder_name" />
+				</div>
+				<div class="control">
+					<label>Amount</label>
+					<input type="text" name="amount" ng-model="transaction_details.amount" />
+				</div>
+			</div>
+			<div class="button_control">
+				<p class="error_msg">[[message]]</p>
+				<p class="error_msg">[[validation_message]]</p>
+				<button ng-click="edit_transactions()">Save</button>
+			</div>
+		</form>
+	</div>
+
+{% endblock %}
